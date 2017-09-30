@@ -14,16 +14,16 @@ contract Physician {
     mapping(uint => Prescription) prescriptions;
     uint numberOfPrescriptions;
 
-    function Physician(bytes32 newName) {
+    function Physician(bytes32 newName) public {
         name = newName;
         numberOfPrescriptions = 0;
     }
 
-    function getnumberOfPrescriptions() returns (uint) {
+    function getnumberOfPrescriptions() public returns (uint) {
         return numberOfPrescriptions;
     }
 
-    function writePrescription(address patient, bytes32 drugName) returns (uint) {
+    function writePrescription(address patient, bytes32 drugName) public returns (uint) {
         numberOfPrescriptions++;
         Prescription memory prescription = Prescription({
             prescriptionID: numberOfPrescriptions,
@@ -34,7 +34,7 @@ contract Physician {
         return numberOfPrescriptions;
     }
 
-    function checkPrescription(uint prescriptionID, address patient, bytes32 drugName) returns (bool) {
+    function checkPrescription(uint prescriptionID, address patient, bytes32 drugName) public returns (bool) {
         Prescription prescription = prescriptions[prescriptionID];
         if (prescription.patient == patient && prescription.drugName == drugName) {
             return true;
