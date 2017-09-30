@@ -1,52 +1,33 @@
-body {
-  margin-left: 25%;
-  margin-right: 25%;
-  margin-top: 10%;
-  font-family: "Open Sans", sans-serif;
+html, body {
+    height: 100%;
+    overflow: auto;
+
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: right 20px bottom 10px;
+    background-color: #80B9D7;
 }
 
-label {
-  display: inline-block;
-  width: 100px;
+img {
+    width: 90%;
+    object-fit: cover;
 }
 
-input {
-  width: 500px;
-  padding: 5px;
-  font-size: 16px;
+.registration {
+    background-size: 100%;
+    background-position: 100% 25%;
 }
 
-button {
-  font-size: 16px;
-  padding: 5px;
+.container {
+    height: 100%;
 }
 
-h1, h2 {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 0px;
-  margin-bottom: 10px;
+.form-group {
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
 
-h2 {
-  color: #AAA;
-  font-size: 32px;
-}
-
-h3 {
-  font-weight: normal;
-  color: #AAA;
-  font-size: 24px;
-}
-
-.black {
-  color: black;
-}
-
-#balance {
-  color: black;
-}
-
-.hint {
-  color: #666;
+.text-center a {
+    margin-top: 15%;
+    margin-bottom: 15%;
 }
