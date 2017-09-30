@@ -1,18 +1,6 @@
 pragma solidity ^0.4.8;
 
-import "./Helper.sol";
-
-contract Patient {
-    bytes32 name;
-
-    function Patient(bytes32 newName) public {
-        name = newName;
-    }
-
-    function getName() public returns (string) {
-        return bytes32ToString(name);
-    }
-
+library Helper {
     function bytes32ToString(bytes32 x) returns (string) {
         bytes memory bytesString = new bytes(32);
         uint charCount = 0;

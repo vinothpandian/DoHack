@@ -1,5 +1,7 @@
 pragma solidity ^0.4.8;
 
+import "./Patient.sol";
+
 contract Physician {
     bytes32 name;
 
@@ -17,7 +19,11 @@ contract Physician {
         numberOfPrescriptions = 0;
     }
 
-    function writePrescription(address patient, bytes32 drugName) constant returns (uint) {
+    function getnumberOfPrescriptions() returns (uint) {
+        return numberOfPrescriptions;
+    }
+
+    function writePrescription(address patient, bytes32 drugName) returns (uint) {
         numberOfPrescriptions++;
         Prescription memory prescription = Prescription({
             prescriptionID: numberOfPrescriptions,
@@ -28,8 +34,11 @@ contract Physician {
         return numberOfPrescriptions;
     }
 
-    function checkPrescription(uint id) constant returns (bytes32) {
-        Prescription prescription = prescriptions[id];
-        return prescription.drugName;
+    function checkPrescription(uint prescriptionID, address patient, bytes32 drugName) returns (bool) {
+        Prescription prescription = prescriptions[prescriptionID];
+        if (prescription.patient == patient && prescription.drugName == drugName) {
+            return true;
+        }
+        return false;
     }
 }
