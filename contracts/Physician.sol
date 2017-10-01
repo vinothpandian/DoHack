@@ -41,7 +41,7 @@ contract Physician {
 
     function checkPrescription(uint prescriptionID, address patient, bytes32 drugName) public returns (bool) {
         Prescription prescription = prescriptions[prescriptionID];
-        if (prescription.patient == patient && prescription.drugName == drugName && prescription.finished == false) {
+        if (prescription.patient == patient && prescription.drugName == drugName) {
             prescription.finished = true;
             prescriptions[prescriptionID] = prescription;
             return true;
