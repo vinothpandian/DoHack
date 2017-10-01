@@ -20,8 +20,16 @@ contract Physician {
         numberOfPrescriptions = 0;
     }
 
-    function getnumberOfPrescriptions() public constant returns (uint) {
+    function getnumberOfPrescriptions() public returns (uint) {
         return numberOfPrescriptions;
+    }
+
+    function getPrescriptions(uint id) public returns (uint prescriptionID, address patient, bytes32 drugName, bool finished) {
+        Prescription prescription = prescriptions[id];
+        prescriptionID = prescription.prescriptionID;
+        patient = prescription.patient;
+        drugName = prescription.drugName;
+        finished = prescription.finished;
     }
 
     function writePrescription(address patient, bytes32 drugName) public returns (uint prescriptionID, address physicianAddr, address patientAddr, string retDrugName) {
