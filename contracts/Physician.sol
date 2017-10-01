@@ -32,7 +32,7 @@ contract Physician {
         finished = prescription.finished;
     }
 
-    function writePrescription(address patient, bytes32 drugName) public returns (uint prescriptionID, address physicianAddr, address patientAddr, string retDrugName) {
+    /*function writePrescription(address patient, bytes32 drugName) public returns (uint prescriptionID, address physicianAddr, address patientAddr, string retDrugName) {
         prescriptions[numberOfPrescriptions] = Prescription(numberOfPrescriptions, patient, drugName, false);
         prescriptionID = numberOfPrescriptions;
         numberOfPrescriptions++;
@@ -49,7 +49,20 @@ contract Physician {
             return true;
         }
         return false;
+    }*/
+
+    // mockup function
+    function writePrescription(address patient, bytes32 drugName) public constant returns (uint prescriptionID, address physicianAddr, address patientAddr, string retDrugName) {
+        prescriptionID = 1;
+        physicianAddr = this;
+        patientAddr = patient;
+        retDrugName = bytes32ToString(drugName);
     }
+
+    function checkPrescription(uint prescriptionID, address patient, bytes32 drugName) public constant returns (bool) {
+        return true;
+    }
+    // end mockup function
 
     function bytes32ToString(bytes32 x) private returns (string) {
         bytes memory bytesString = new bytes(32);
