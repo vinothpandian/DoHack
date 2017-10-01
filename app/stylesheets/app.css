@@ -2,6 +2,10 @@ html, body {
     height: 100%;
     overflow: auto;
 
+    font-size: 18px;
+    color: whitesmoke;
+    font-weight: 400;
+
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: right 20px bottom 10px;

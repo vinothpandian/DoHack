@@ -2,6 +2,7 @@ import "bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/app.css'
 
+
 import nurse from "../images/nurse.png"
 
 $('body').css('background-image',  'url(' + nurse + ')');

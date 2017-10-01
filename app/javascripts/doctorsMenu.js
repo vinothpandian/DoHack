@@ -4,4 +4,4 @@ import '../stylesheets/app.css'
 
 import doctor from "../images/doctor.png"
 
-$('body').css('background-image',  'url(' + doctor + ')');
+$('body').css('background-image',  ' url(' + doctor + ')');
