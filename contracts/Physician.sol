@@ -20,7 +20,7 @@ contract Physician {
         numberOfPrescriptions = 0;
     }
 
-    function getnumberOfPrescriptions() public returns (uint) {
+    function getnumberOfPrescriptions() public constant returns (uint) {
         return numberOfPrescriptions;
     }
 
@@ -33,15 +33,9 @@ contract Physician {
     }
 
     function writePrescription(address patient, bytes32 drugName) public returns (uint prescriptionID, address physicianAddr, address patientAddr, string retDrugName) {
-        numberOfPrescriptions++;
-        Prescription memory prescription = Prescription({
-            prescriptionID: numberOfPrescriptions,
-            patient: patient,
-            drugName: drugName,
-            finished: false
-        });
-        prescriptions[numberOfPrescriptions] = prescription;
+        prescriptions[numberOfPrescriptions] = Prescription(numberOfPrescriptions, patient, drugName, false);
         prescriptionID = numberOfPrescriptions;
+        numberOfPrescriptions++;
         physicianAddr = this;
         patientAddr = patient;
         retDrugName = bytes32ToString(drugName);
