@@ -12,7 +12,7 @@ const canvas = document.querySelector('canvas');
 
 const qr = new QRious({
   element: canvas,
-  value: 'hello'
+  value: localStorage.getItem("PrescriptionID")
 });
 
 qr.backgroundAlpha = 0.8;

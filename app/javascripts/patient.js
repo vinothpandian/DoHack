@@ -1,5 +1,3 @@
-// Import the page's CSS. Webpack will know what to do with it.
-import "../stylesheets/app.css";
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
@@ -42,14 +40,13 @@ window.Patient = {
   },
 
   setStatus: function(message) {
-    var status = document.getElementById("status");
-    status.innerHTML = message;
+    console.log(message);
   },
 
   createNewPatient: function() {
     var self = this;
 
-    var patientName = document.getElementById("patientName").value;
+    var patientName = document.getElementById("inputName").value;
 
     this.setStatus("Initiating transaction... (please wait)");
 

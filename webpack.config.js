@@ -11,7 +11,13 @@ module.exports = {
       prescription: './app/javascripts/prescription.js',
       viewData: './app/javascripts/viewData.js',
       registration: './app/javascripts/registration.js',
-      scanPatient: './app/javascripts/scanPatient.js'
+      scanPatient: './app/javascripts/scanPatient.js',
+      patientFactory: './app/javascripts/patient_factory.js',
+      doctorsMenu: './app/javascripts/doctorsMenu.js',
+      viewPresDoc: './app/javascripts/viewPresDoc.js',
+      physician: './app/javascripts/physician.js',
+      confirmPrescription: './app/javascripts/confirmPrescription.js',
+      drug_store: './app/javascripts/drug_store.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -57,7 +63,7 @@ module.exports = {
         new HtmlWebpackPlugin({// Use template of our app's index.html and generate new index.html in the build folder.
             hash: true,
             template: './app/registration.html',
-            chunks: ['registration'],
+            chunks: ['registration','patientFactory'],
             filename: './registration.html' //relative to root of the application
         }),
         new HtmlWebpackPlugin({// Use template of our app's index.html and generate new index.html in the build folder.
@@ -65,6 +71,24 @@ module.exports = {
             template: './app/viewData.html',
             chunks: ['viewData'],
             filename: './viewData.html' //relative to root of the application
+        }),
+        new HtmlWebpackPlugin({// Use template of our app's index.html and generate new index.html in the build folder.
+            hash: true,
+            template: './app/doctorsMenu.html',
+            chunks: ['doctorsMenu','physician'],
+            filename: './doctorsMenu.html' //relative to root of the application
+        }),
+        new HtmlWebpackPlugin({// Use template of our app's index.html and generate new index.html in the build folder.
+            hash: true,
+            template: './app/viewPresDoc.html',
+            chunks: ['viewPresDoc'],
+            filename: './viewPresDoc.html' //relative to root of the application
+        }),
+        new HtmlWebpackPlugin({// Use template of our app's index.html and generate new index.html in the build folder.
+            hash: true,
+            template: './app/confirmPrescription.html',
+            chunks: ['confirmPrescription','drug_store'],
+            filename: './confirmPrescription.html' //relative to root of the application
         }),
         new webpack.ProvidePlugin({
           $: 'jquery',

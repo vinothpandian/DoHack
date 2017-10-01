@@ -1,6 +1,3 @@
-// Import the page's CSS. Webpack will know what to do with it.
-import "../stylesheets/app.css";
-
 // Import libraries we need.
 import { default as Web3} from 'web3';
 import { default as contract } from 'truffle-contract'
@@ -42,22 +39,23 @@ window.PatientFactory = {
   },
 
   setStatus: function(message) {
-    var status = document.getElementById("status");
-    status.innerHTML = message;
+    console.log(message);
   },
 
   createNewPatient: function() {
     var self = this;
 
-    var patientName = document.getElementById("patientName").value;
+    var patientName = document.getElementById("inputName").value;
 
     this.setStatus("Initiating transaction... (please wait)");
 
     var meta;
     PatientFactory.deployed().then(function(instance) {
       meta = instance;
-      return meta.createNewPatient(patientName);
-    }).then(function() {
+      return meta.createNewPatient.call(patientName);
+    }).then(function(addr) {
+      localStorage.setItem('address', addr);
+      window.location.href = "viewData.html"
       self.setStatus("Transaction complete!");
     }).catch(function(e) {
       console.log(e);
@@ -78,5 +76,5 @@ window.addEventListener('load', function() {
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
 
-  PatientFactory.start();
+  window.PatientFactory.start();
 });

@@ -1,5 +1,3 @@
-// Import the page's CSS. Webpack will know what to do with it.
-import "../stylesheets/app.css";
 
 // Import libraries we need.
 import { default as Web3} from 'web3';
@@ -42,14 +40,13 @@ window.Physician = {
   },
 
   setStatus: function(message) {
-    var status = document.getElementById("status");
-    status.innerHTML = message;
+    console.log(message);
   },
 
   writePrescription: function() {
     var self = this;
 
-    var receiver = document.getElementById("receiver").value;
+    var receiver = localStorage.getItem("PatientAddress");
     var drugName = document.getElementById("drugName").value;
 
     this.setStatus("Initiating transaction... (please wait)");
@@ -57,8 +54,10 @@ window.Physician = {
     var meta;
     Physician.deployed().then(function(instance) {
       meta = instance;
-      return meta.writePrescription(receiver, drugName);
-    }).then(function() {
+      return meta.writePrescription.call(receiver, drugName);
+    }).then(function(id) {
+      localStorage.setItem('PrescriptionID', id);
+      window.location.href = "viewPresDoc.html"
       self.setStatus("Transaction complete!");
     }).catch(function(e) {
       console.log(e);
@@ -79,5 +78,5 @@ window.addEventListener('load', function() {
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
   }
 
-  Physician.start();
+  window.Physician.start();
 });

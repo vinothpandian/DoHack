@@ -10,8 +10,7 @@ let scanner = new Instascan.Scanner({
   video: document.getElementById('preview') });
   scanner.addListener('scan', function (content) {
     console.log(content);
-    localStorage.setItem('PatientAddress', content);
-    window.location.href = "doctorsMenu.html"
+    DrugStore.verify();
   });
   Instascan.Camera.getCameras().then(function (cameras) {
     if (cameras.length > 0) {

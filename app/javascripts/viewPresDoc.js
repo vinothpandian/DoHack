@@ -1,12 +1,3 @@
-$("#presButton").on("click", function(){
-  if(!localStorage.getItem("PrescriptionID") || localStorage.getItem("PrescriptionID") == "" ) {
-    console.log("Nothing available");
-  }
-  else  {
-    window.location.href = "prescription.html"
-  }
-})
-
 import "bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/app.css'
@@ -21,7 +12,7 @@ const canvas = document.querySelector('canvas');
 
 const qr = new QRious({
   element: canvas,
-  value: localStorage.getItem('address')
+  value: localStorage.getItem('PrescriptionID')
 });
 
 qr.backgroundAlpha = 0.8;
