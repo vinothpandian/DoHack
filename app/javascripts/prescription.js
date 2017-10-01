@@ -2,9 +2,9 @@ import "bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/app.css'
 
-import background from "../images/Background.png"
+import patient from "../images/patient.png"
 
-$('body').css('background-image',  'url(' + background + ')');
+$('body').css('background-image',  'url(' + patient + ')');
 
 const QRious = require('qrious');
 

@@ -5,7 +5,6 @@ html, body {
     background-repeat: no-repeat;
     background-size: 50%;
     background-position: right 20px bottom 10px;
-    background-color: #80B9D7;
 }
 
 img {
@@ -16,6 +15,7 @@ img {
 .registration {
     background-size: 100%;
     background-position: 100% 25%;
+    background-color: #A9CF54;
 }
 
 .container {
@@ -30,4 +30,21 @@ img {
 .text-center a {
     margin-top: 15%;
     margin-bottom: 15%;
+}
+
+.patient {
+    background-color: #A9CF54;
+}
+
+.doctor {
+    background-color: #80B9D7;
+}
+
+.drugStore {
+    background-color: #E74C3C;
+}
+
+button.btn.btn-primary {
+    background-color:#212529;
+    color:#ffffff;
 }

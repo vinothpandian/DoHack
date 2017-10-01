@@ -2,7 +2,9 @@ import "bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../stylesheets/app.css'
 
-import background from "../images/Background.png"
+import nurse from "../images/nurse.png"
+
+$('body').css('background-image',  'url(' + nurse + ')');
 
 const Instascan = require('instascan');
 
