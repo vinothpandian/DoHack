@@ -34,13 +34,12 @@ contract Physician {
 
     function writePrescription(address patient, bytes32 drugName) public returns (uint prescriptionID, address physicianAddr, address patientAddr, string retDrugName) {
         numberOfPrescriptions++;
-        Prescription memory prescription = Prescription({
+        prescriptions[numberOfPrescriptions] = Prescription({
             prescriptionID: numberOfPrescriptions,
             patient: patient,
             drugName: drugName,
             finished: false
         });
-        prescriptions[numberOfPrescriptions] = prescription;
         prescriptionID = numberOfPrescriptions;
         physicianAddr = this;
         patientAddr = patient;
