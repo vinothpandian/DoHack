@@ -32,9 +32,9 @@
     "html-webpack-plugin": "^2.30.1",
     "json-loader": "^0.5.4",
     "style-loader": "^0.13.1",
-    "truffle-contract": "^1.1.11",
+    "truffle-contract": "^4.0.31",
     "url-loader": "^0.5.9",
-    "web3": "^0.18.2",
+    "web3": "^4.16.0",
     "webpack": "^3.6.0",
     "webpack-dev-server": "^6.1.0"
   },
